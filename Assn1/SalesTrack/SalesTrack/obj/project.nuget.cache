@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "i0c7yq87OsE8X6kwrp+vMulP39p5lFDiVNlAH1lYvZVFn7E3LTSeqv2Kc7uanMeo77lyIMdhAKsMgZvyx1xWTg==",
+  "success": true,
+  "projectFilePath": "C:\\Data\\Data\\Workspace\\COSC295 - Xamarin\\Assn1\\SalesTrack\\SalesTrack\\SalesTrack.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dluck\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\dluck\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\dluck\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\dluck\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\dluck\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+  ],
+  "logs": []
+}
