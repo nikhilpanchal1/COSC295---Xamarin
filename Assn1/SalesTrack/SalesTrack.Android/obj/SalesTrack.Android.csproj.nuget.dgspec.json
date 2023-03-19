@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Data\\Data\\Workspace\\COSC295 - Xamarin\\Assn1\\SalesTrack\\SalesTrack.Android\\SalesTrack.Android.csproj",
-        "projectName": "SalesTrack.Android",
+        "projectName": "SalesTrack.Android.csproj",
         "projectPath": "C:\\Data\\Data\\Workspace\\COSC295 - Xamarin\\Assn1\\SalesTrack\\SalesTrack.Android\\SalesTrack.Android.csproj",
         "packagesPath": "C:\\Users\\dluck\\.nuget\\packages\\",
         "outputPath": "C:\\Data\\Data\\Workspace\\COSC295 - Xamarin\\Assn1\\SalesTrack\\SalesTrack.Android\\obj\\",
@@ -49,6 +49,10 @@
             "Xamarin.Forms": {
               "target": "Package",
               "version": "[5.0.0.2196, )"
+            },
+            "sqlite-net-pcl": {
+              "target": "Package",
+              "version": "[1.8.116, )"
             }
           }
         }
