@@ -11,6 +11,7 @@ namespace SalesTrack.Droid.Data
         {
             _connection = new SQLiteConnection(dbPath);
             _connection.CreateTable<Customer>();
+            _connection.CreateTable <Interaction>() ;
         }
 
         public void AddCustomer(Customer customer)
@@ -32,5 +33,33 @@ namespace SalesTrack.Droid.Data
         {
             return _connection.Table<Customer>().ToList();
         }
+        
+        //Methods for interaction
+        public void AddInteraction(Interaction interaction)
+        {
+            _connection.Insert(interaction);
+        }
+
+        public void UpdateInteraction(Interaction interaction)
+        {
+            _connection.Update(interaction);
+        }
+
+        public void DeleteInteraction(Interaction interaction)
+        {
+            _connection.Delete(interaction);
+        }
+
+        public List<Interaction> GetInteractionsByCustomer(int customerId)
+        {
+            return _connection.Table<Interaction>().Where(i => i.CustomerID == customerId).ToList();
+        }
+
+        public List<Interaction> GetInteractionsByProduct(int productId)
+        {
+            return _connection.Table<Interaction>().Where(i => i.ProductID == productId).ToList();
+        }
+        
+        
     }
 }
