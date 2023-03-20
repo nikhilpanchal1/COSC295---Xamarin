@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/KjcOk46yyaJm4RtbCPfrY4ROx0eBi0ijI3qqDYY/l3+Zt4ai3QYmVViyD1r+gIAvgtetoRw2mUbwiMHlzSGwA==",
+  "dgSpecHash": "IDKZBAHMlOnQ8E/Xfvfz6JXR9PRKbxUmiDvx0ZvYpmwZ0WIwLbxW/0BEuZoHI4rnfsLQuC/eeuBrUg4Hqs2Dlw==",
   "success": true,
   "projectFilePath": "C:\\Data\\Data\\Workspace\\COSC295 - Xamarin\\Assn1\\SalesTrack\\SalesTrack.Android\\SalesTrack.Android.csproj",
   "expectedPackageFiles": [
@@ -71,5 +71,16 @@
     "C:\\Users\\dluck\\.nuget\\packages\\xamarin.google.android.material\\1.4.0.2\\xamarin.google.android.material.1.4.0.2.nupkg.sha512",
     "C:\\Users\\dluck\\.nuget\\packages\\xamarin.google.guava.listenablefuture\\1.0.0.2\\xamarin.google.guava.listenablefuture.1.0.0.2.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: sqlite-net-pcl from 1.9.141-beta to 1.8.116. Reference the package directly from the project to select a different version. \r\n SalesTrack.Android.csproj -> SalesTrack -> sqlite-net-pcl (>= 1.9.141-beta) \r\n SalesTrack.Android.csproj -> sqlite-net-pcl (>= 1.8.116)",
+      "libraryId": "sqlite-net-pcl",
+      "targetGraphs": [
+        "MonoAndroid,Version=v13.0"
+      ]
+    }
+  ]
 }

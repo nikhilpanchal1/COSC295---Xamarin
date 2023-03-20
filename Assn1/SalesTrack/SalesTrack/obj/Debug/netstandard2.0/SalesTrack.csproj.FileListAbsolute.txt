@@ -18,3 +18,5 @@ C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\n
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\refint\SalesTrack.dll
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\SalesTrack.pdb
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\ref\SalesTrack.dll
+C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\Views\AddEditCustomerPage.xaml.g.cs
+C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\Views\CustomersPage.xaml.g.cs

@@ -8,17 +8,17 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("SalesTrack.Views.AboutPage.xaml", "Views/AboutPage.xaml", typeof(global::SalesTrack.Views.AboutPage))]
+[assembly: global::Xamarin.Forms.Xaml.XamlResourceIdAttribute("SalesTrack.Views.AddEditCustomerPage.xaml", "Views/AddEditCustomerPage.xaml", typeof(global::SalesTrack.Views.AddEditCustomerPage))]
 
 namespace SalesTrack.Views {
     
     
-    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\AboutPage.xaml")]
-    public partial class AboutPage : global::Xamarin.Forms.ContentPage {
+    [global::Xamarin.Forms.Xaml.XamlFilePathAttribute("Views\\AddEditCustomerPage.xaml")]
+    public partial class AddEditCustomerPage : global::Xamarin.Forms.ContentPage {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "2.0.0.0")]
         private void InitializeComponent() {
-            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(AboutPage));
+            global::Xamarin.Forms.Xaml.Extensions.LoadFromXaml(this, typeof(AddEditCustomerPage));
         }
     }
 }

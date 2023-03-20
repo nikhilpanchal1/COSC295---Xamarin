@@ -14,6 +14,8 @@ namespace SalesTrack
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
+            DependencyService.Register<IFileHelper>();
+
             MainPage = new AppShell();
         }
 

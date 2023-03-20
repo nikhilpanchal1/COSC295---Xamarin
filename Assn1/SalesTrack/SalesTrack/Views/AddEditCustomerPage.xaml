@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SalesTrack.Views.AddEditCustomerPage"
+             Title="Add New Customer">
+    
+    <StackLayout>
+        <TableView>
+            <TableRoot>
+                <TableSection Title="Personal Information">
+                    <EntryCell Label="First Name" Placeholder="Enter First Name" Keyboard="Text" Text="{Binding FirstName}" />
+                    <EntryCell Label="Last Name" Placeholder="Enter Last Name" Keyboard="Text" Text="{Binding LastName}" />
+                    <EntryCell Label="Address" Placeholder="Enter Address" Keyboard="Text" Text="{Binding Address}" />
+                    <EntryCell Label="Phone" Placeholder="Enter Phone" Keyboard="Telephone" Text="{Binding Phone}" />
+                    <EntryCell Label="Email" Placeholder="Enter Email" Keyboard="Email" Text="{Binding Email}" />
+                </TableSection>
+            </TableRoot>
+        </TableView>
+        <Button Text="Save" Clicked="SaveClicked" />
+    </StackLayout>
+
+</ContentPage>
