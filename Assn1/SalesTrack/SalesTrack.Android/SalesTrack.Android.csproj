@@ -63,6 +63,7 @@
     <Compile Include="Data\Customer.cs" />
     <Compile Include="Data\DatabaseContext.cs" />
     <Compile Include="Data\Interaction.cs" />
+    <Compile Include="Data\Product.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,7 +11,8 @@ namespace SalesTrack.Droid.Data
         {
             _connection = new SQLiteConnection(dbPath);
             _connection.CreateTable<Customer>();
-            _connection.CreateTable <Interaction>() ;
+            _connection.CreateTable <Interaction>();
+            _connection.CreateTable<Product>();
         }
 
         public void AddCustomer(Customer customer)
@@ -60,6 +61,32 @@ namespace SalesTrack.Droid.Data
             return _connection.Table<Interaction>().Where(i => i.ProductID == productId).ToList();
         }
         
+        //For product
+        public void AddProduct(Product product)
+        {
+            _connection.Insert(product);
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            _connection.Update(product);
+        }
+
+        public void DeleteProduct(Product product)
+        {
+            _connection.Delete(product);
+        }
+
+        public List<Product> GetProducts()
+        {
+            return _connection.Table<Product>().ToList();
+        }
+
+        public Product GetProductById(int productId)
+        {
+            return _connection.Table<Product>().FirstOrDefault(p => p.ID == productId);
+        }
+
         
     }
 }
