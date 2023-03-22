@@ -6,90 +6,90 @@ namespace SalesTrack.Data
 {
     public class DatabaseContext
     {
-        private SQLiteConnection _connection;
+        private SQLiteConnection _sqCon;
 
         public DatabaseContext(string dbPath)
         {
-            _connection = new SQLiteConnection(dbPath);
-            _connection.CreateTable<Customer>();
-            _connection.CreateTable <Interaction>();
-            _connection.CreateTable<Product>();
+            _sqCon = new SQLiteConnection(dbPath);
+            _sqCon.CreateTable<Customer>();
+            _sqCon.CreateTable <Interaction>();
+            _sqCon.CreateTable<Product>();
         }
 
         public void AddCustomer(Customer customer)
         {
-            _connection.Insert(customer);
+            _sqCon.Insert(customer);
         }
 
         public void UpdateCustomer(Customer customer)
         {
-            _connection.Update(customer);
+            _sqCon.Update(customer);
         }
 
         public void DeleteCustomer(Customer customer)
         {
-            _connection.Delete(customer);
+            _sqCon.Delete(customer);
         }
 
         public List<Customer> GetCustomers()
         {
-            return _connection.Table<Customer>().ToList();
+            return _sqCon.Table<Customer>().ToList();
         }
         
         //Methods for interaction
         public void AddInteraction(Interaction interaction)
         {
-            _connection.Insert(interaction);
+            _sqCon.Insert(interaction);
         }
 
         public void UpdateInteraction(Interaction interaction)
         {
-            _connection.Update(interaction);
+            _sqCon.Update(interaction);
         }
 
         public void DeleteInteraction(Interaction interaction)
         {
-            _connection.Delete(interaction);
+            _sqCon.Delete(interaction);
         }
 
         public List<Interaction> GetInteractionsByCustomer(int customerId)
         {
-            return _connection.Table<Interaction>().Where(i => i.CustomerID == customerId).ToList();
+            return _sqCon.Table<Interaction>().Where(i => i.CustomerID == customerId).ToList();
         }
 
         public List<Interaction> GetInteractionsByProduct(int productId)
         {
-            return _connection.Table<Interaction>().Where(i => i.ProductID == productId).ToList();
+            return _sqCon.Table<Interaction>().Where(i => i.ProductID == productId).ToList();
         }
         
         //For product
         public void AddProduct(Product product)
         {
-            _connection.Insert(product);
+            _sqCon.Insert(product);
         }
 
         public void UpdateProduct(Product product)
         {
-            _connection.Update(product);
+            _sqCon.Update(product);
         }
 
         public void DeleteProduct(Product product)
         {
-            _connection.Delete(product);
+            _sqCon.Delete(product);
         }
 
         public List<Product> GetProducts()
         {
-            return _connection.Table<Product>().ToList();
+            return _sqCon.Table<Product>().ToList();
         }
 
         public Product GetProductById(int productId)
         {
-            return _connection.Table<Product>().FirstOrDefault(p => p.ID == productId);
+            return _sqCon.Table<Product>().FirstOrDefault(p => p.ID == productId);
         }
         public async Task SaveChangesAsync()
         {
-            await Task.Run(() => _connection.Commit());
+            await Task.Run(() => _sqCon.Commit());
         }
 
         

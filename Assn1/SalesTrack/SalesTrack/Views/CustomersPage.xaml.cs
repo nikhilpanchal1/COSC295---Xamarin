@@ -32,7 +32,7 @@ namespace SalesTrack.Views
             var menuItem = sender as SwipeItem;
             var customer = menuItem.CommandParameter as Customer;
 
-            var confirmation = await DisplayAlert("Delete Customer?", $"Are you sure you want to delete {customer.FullName}?", "Yes", "No");
+            var confirmation = await DisplayAlert("Delete Customer?", $"Are you sure you want to delete {customer.FirstName} {customer.LastName}", "Yes", "No");
 
             if (confirmation)
             {
