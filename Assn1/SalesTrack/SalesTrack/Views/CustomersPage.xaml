@@ -12,7 +12,11 @@
             <ListView x:Name="CustomersListView" ItemsSource="{Binding Customers}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <TextCell Text="{Binding FullName}" Detail="{Binding Address}" Command="{Binding BindingContext.ViewCustomerInteractionsCommand, Source={x:Reference CustomersListView}}" CommandParameter="{Binding .}" />
+                        <TextCell Text="{Binding FullName}" Detail="{Binding Address}">
+                            <TextCell.ContextActions>
+                                <MenuItem Text="View Interactions" Command="{Binding BindingContext.ViewCustomerInteractionsCommand, Source={x:Reference CustomersListView}}" CommandParameter="{Binding .}" />
+                            </TextCell.ContextActions>
+                        </TextCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

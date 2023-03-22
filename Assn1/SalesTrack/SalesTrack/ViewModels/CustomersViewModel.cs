@@ -5,6 +5,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using SalesTrack.Data;
 using SalesTrack.Models;
+using SalesTrack.Views;
 
 namespace SalesTrack.ViewModels
 {
@@ -15,7 +16,8 @@ namespace SalesTrack.ViewModels
         public ICommand ViewCustomerInteractionsCommand { get; }
 
         public ObservableCollection<Customer> Customers { get; }
-
+        
+        
         public CustomersViewModel()
         {
             _databaseContext = new DatabaseContext(DependencyService.Get<IFileHelper>().GetLocalFilePath("database.sqlite"));

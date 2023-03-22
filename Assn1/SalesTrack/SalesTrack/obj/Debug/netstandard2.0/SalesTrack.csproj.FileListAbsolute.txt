@@ -5,10 +5,8 @@ C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\n
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\SalesTrack.GeneratedMSBuildEditorConfig.editorconfig
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\App.xaml.g.cs
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\AppShell.xaml.g.cs
-C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\Views\ItemDetailPage.xaml.g.cs
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\Views\ItemsPage.xaml.g.cs
-C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\Views\NewItemPage.xaml.g.cs
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\SalesTrack.AssemblyInfoInputs.cache
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\SalesTrack.AssemblyInfo.cs
@@ -20,3 +18,4 @@ C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\n
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\ref\SalesTrack.dll
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\Views\AddEditCustomerPage.xaml.g.cs
 C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\Views\CustomersPage.xaml.g.cs
+C:\Data\Data\Workspace\COSC295 - Xamarin\Assn1\SalesTrack\SalesTrack\obj\Debug\netstandard2.0\Views\InteractionsPage.xaml.g.cs
