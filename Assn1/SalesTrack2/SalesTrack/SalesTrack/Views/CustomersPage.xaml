@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="SalesTrack.Views.CustomersPage"
+             Title="Customers">
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="CustomersListView" ItemsSource="{Binding Customers}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding FullName}" Detail="{Binding Address}">
+                            <TextCell.ContextActions>
+                                <MenuItem Text="View Interactions" Command="{Binding BindingContext.ViewCustomerInteractionsCommand, Source={x:Reference CustomersListView}}" CommandParameter="{Binding .}" />
+                            </TextCell.ContextActions>
+                        </TextCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add New Customer" Clicked="AddNewCustomerClicked" />
+    </ContentPage.ToolbarItems>
+
+</ContentPage>

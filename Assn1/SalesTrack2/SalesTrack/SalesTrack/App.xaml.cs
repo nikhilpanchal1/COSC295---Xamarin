@@ -1,4 +1,5 @@
 ﻿using System;
+using SalesTrack.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,7 +11,7 @@ namespace SalesTrack
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new CustomersPage());
         }
 
         protected override void OnStart()
