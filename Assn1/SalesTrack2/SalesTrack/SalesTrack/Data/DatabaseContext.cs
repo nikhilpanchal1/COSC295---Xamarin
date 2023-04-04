@@ -14,6 +14,12 @@ namespace SalesTrack.Data
             _sqCon.CreateTable<Customer>();
             _sqCon.CreateTable <Interaction>();
             _sqCon.CreateTable<Product>();
+            var customers = new List<Customer>
+            {
+                new Customer { FirstName = "John", LastName = "Doe", Address = "123 Main St", Phone = "555-1234", Email = "john.doe@example.com" },
+                new Customer { FirstName = "Jane", LastName = "Doe", Address = "456 Elm St", Phone = "555-5678", Email = "jane.doe@example.com" },
+                new Customer { FirstName = "Bob", LastName = "Smith", Address = "789 Oak St", Phone = "555-9012", Email = "bob.smith@example.com" }
+            };
         }
 
         public void AddCustomer(Customer customer)

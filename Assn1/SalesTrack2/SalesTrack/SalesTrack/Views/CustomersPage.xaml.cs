@@ -1,51 +1,61 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SalesTrack.Data;
-using SalesTrack.ViewModels;
-using SalesTrack.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SalesTrack.ViewModels;
 
 namespace SalesTrack.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CustomersPage : ContentPage
     {
-        private readonly CustomersViewModel _viewModel;
+        private CustomersViewModel _viewModel;
+
         public CustomersPage()
         {
             InitializeComponent();
 
             _viewModel = new CustomersViewModel();
             BindingContext = _viewModel;
-        }
-        private async void AddNewCustomerClicked(object sender, EventArgs e)
-        {
-            await Shell.Current.Navigation.PushAsync(new AddEditCustomerPage());
-        }
 
-        private async void OnDeleteCustomerSwipeItemInvoked(object sender, EventArgs e)
-        {
-            var menuItem = sender as SwipeItem;
-            var customer = menuItem.CommandParameter as Customer;
-
-            var confirmation = await DisplayAlert("Delete Customer?", $"Are you sure you want to delete {customer.FirstName} {customer.LastName}", "Yes", "No");
-
-            if (confirmation)
+            var listView = new ListView
             {
-                _viewModel.DeleteCustomer(customer);
-            }
-        }
+                ItemsSource = _viewModel.Customers,
+                ItemTemplate = new DataTemplate(() =>
+                {
+                    var textCell = new TextCell();
+                    textCell.SetBinding(TextCell.TextProperty, "FirstName");
+                    textCell.SetBinding(TextCell.DetailProperty, "LastName");
+                    textCell.ContextActions.Add(new MenuItem
+                    {
+                        Text = "Delete",
+                        IsDestructive = true,
+                        Command = new Command<Customer>((customer) => _viewModel.DeleteCustomer(customer)),
+                        CommandParameter = textCell.BindingContext
+                    });
 
-        private async void ViewCustomerInteractionsCommandHandler(object sender, EventArgs e)
-        {
-            var menuItem = sender as MenuItem;
-            var customer = menuItem.CommandParameter as Customer;
+                    textCell.Tapped += async (sender, args) =>
+                    {
+                        if (sender is TextCell cell && cell.BindingContext is Customer customer)
+                        {
+                            _viewModel.ViewCustomerInteractionsCommand.Execute(customer);
+                        }
+                    };
 
-            await Shell.Current.Navigation.PushAsync(new InteractionsPage(customer));
+                    return textCell;
+                })
+            };
+
+            var addNewCustomerButton = new Button
+            {
+                Text = "Add New Customer",
+                Command = new Command(async () => await Navigation.PushAsync(new AddEditCustomerPage()))
+            };
+
+            Content = new StackLayout
+            {
+                Children = { listView, addNewCustomerButton }
+            };
         }
     }
 }
