@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
@@ -22,7 +23,6 @@ namespace SalesTrack.ViewModels
         {
             _databaseContext = new DatabaseContext(DependencyService.Get<IFileHelper>().GetLocalFilePath("database.sqlite"));
             Customers = new ObservableCollection<Customer>(_databaseContext.GetCustomers());
-
             ViewCustomerInteractionsCommand = new Command<Customer>(async (customer) =>
             {
                 await Shell.Current.Navigation.PushAsync(new InteractionsPage(customer));

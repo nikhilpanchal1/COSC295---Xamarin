@@ -35,8 +35,7 @@ namespace SalesTrack.Views
                     {
                         Text = "Delete",
                         BackgroundColor = Color.Red,
-                        Command = new Command<Customer>((customer) => _viewModel.DeleteCustomer(customer)),
-                        CommandParameter = grid.BindingContext
+                        Command = new Command<Customer>((customer) => _viewModel.DeleteCustomer(customer))
                     };
 
                     var swipeItems = new SwipeItems { deleteItem };
@@ -48,6 +47,7 @@ namespace SalesTrack.Views
                         Content = grid
                     };
                     swipeView.SetBinding(SwipeView.BindingContextProperty, ".");
+                    deleteItem.SetBinding(SwipeItem.CommandParameterProperty, ".");
                     grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 
                     var viewCell = new ViewCell { View = swipeView };
@@ -62,6 +62,7 @@ namespace SalesTrack.Views
                     return viewCell;
                 })
             };
+
 
             var addNewCustomerButton = new Button
             {
