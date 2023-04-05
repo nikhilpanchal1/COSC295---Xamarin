@@ -1,5 +1,4 @@
-﻿using System;
-using SalesTrack.Data;
+﻿using SalesTrack.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SalesTrack.ViewModels;
@@ -23,26 +22,44 @@ namespace SalesTrack.Views
                 ItemsSource = _viewModel.Customers,
                 ItemTemplate = new DataTemplate(() =>
                 {
-                    var textCell = new TextCell();
-                    textCell.SetBinding(TextCell.TextProperty, "FirstName");
-                    textCell.SetBinding(TextCell.DetailProperty, "LastName");
-                    textCell.ContextActions.Add(new MenuItem
+                    var grid = new Grid();
+                    var nameLabel = new Label();
+                    var lastNameLabel = new Label { FontAttributes = FontAttributes.Italic };
+                    nameLabel.SetBinding(Label.TextProperty, "FirstName");
+                    lastNameLabel.SetBinding(Label.TextProperty, "LastName");
+
+                    grid.Children.Add(nameLabel);
+                    grid.Children.Add(lastNameLabel, 1, 0);
+
+                    var deleteItem = new SwipeItem
                     {
                         Text = "Delete",
-                        IsDestructive = true,
+                        BackgroundColor = Color.Red,
                         Command = new Command<Customer>((customer) => _viewModel.DeleteCustomer(customer)),
-                        CommandParameter = textCell.BindingContext
-                    });
+                        CommandParameter = grid.BindingContext
+                    };
 
-                    textCell.Tapped += async (sender, args) =>
+                    var swipeItems = new SwipeItems { deleteItem };
+                    swipeItems.Mode = SwipeMode.Execute;
+
+                    var swipeView = new SwipeView
                     {
-                        if (sender is TextCell cell && cell.BindingContext is Customer customer)
+                        RightItems = swipeItems,
+                        Content = grid
+                    };
+                    swipeView.SetBinding(SwipeView.BindingContextProperty, ".");
+                    grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+
+                    var viewCell = new ViewCell { View = swipeView };
+                    viewCell.Tapped += async (sender, args) =>
+                    {
+                        if (sender is ViewCell cell && cell.BindingContext is Customer customer)
                         {
                             _viewModel.ViewCustomerInteractionsCommand.Execute(customer);
                         }
                     };
 
-                    return textCell;
+                    return viewCell;
                 })
             };
 
