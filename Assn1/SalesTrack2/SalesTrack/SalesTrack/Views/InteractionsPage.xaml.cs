@@ -2,7 +2,6 @@
 using SalesTrack.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-
 using SalesTrack.ViewModels;
 
 namespace SalesTrack.Views
@@ -15,12 +14,11 @@ namespace SalesTrack.Views
         public InteractionsPage(Customer customer)
         {
             InitializeComponent();
-            BindingContext = _viewModel = new InteractionsViewModel(customer);
+
+            _viewModel = new InteractionsViewModel(customer);
+            BindingContext = _viewModel;
         }
 
-        private void AddNewInteractionClicked(object sender, EventArgs e)
-        {
-            AddInteractionTableView.IsVisible = true;
-        }
+        
     }
 }

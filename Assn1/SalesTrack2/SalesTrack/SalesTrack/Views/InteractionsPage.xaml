@@ -8,10 +8,6 @@
              x:Class="SalesTrack.Views.InteractionsPage"
              Title="Interactions">
     
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add New Interaction" Clicked="AddNewInteractionClicked" />
-    </ContentPage.ToolbarItems>
-
     <StackLayout>
         <ListView x:Name="InteractionsListView" ItemsSource="{Binding Interactions}">
             <ListView.ItemTemplate>
@@ -25,24 +21,16 @@
             </ListView.ItemTemplate>
         </ListView>
 
-
-
-        <TableView x:Name="AddInteractionTableView" IsVisible="False">
-            <TableRoot>
-                <TableSection Title="Add Interaction">
-                    <ViewCell>
-                        <StackLayout>
-                            <Picker Title="Product" ItemsSource="{Binding Products}" ItemDisplayBinding="{Binding ProductName}" SelectedItem="{Binding SelectedProduct}" />
-                            <DatePicker Date="{Binding Date}" />
-                            <Entry Placeholder="Comments" Text="{Binding Comments}" />
-                            <Switch IsToggled="{Binding Purchased}" />
-                            <Button Text="Save" Command="{Binding SaveInteractionCommand}" />
-                            <Button Text="Cancel" Command="{Binding CancelInteractionCommand}" />
-                        </StackLayout>
-                    </ViewCell>
-                </TableSection>
-            </TableRoot>
-        </TableView>
+        <StackLayout>
+            <Label Text="Add Interaction" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" />
+            <DatePicker Date="{Binding Date}" />
+            <Entry Placeholder="Comments" Text="{Binding Comments}" />
+            <Picker Title="Product" ItemsSource="{Binding Products}" ItemDisplayBinding="{Binding ProductName}" SelectedItem="{Binding SelectedProduct}" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Purchase?" VerticalOptions="Center" />
+                <Switch IsToggled="{Binding Purchased}" />
+            </StackLayout>
+            <Button Text="Add" Command="{Binding SaveInteractionCommand}" />
+        </StackLayout>
     </StackLayout>
-
 </ContentPage>

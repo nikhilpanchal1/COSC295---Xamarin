@@ -17,7 +17,6 @@ namespace SalesTrack.ViewModels
 
         public ICommand DeleteInteractionCommand { get; }
         public ICommand SaveInteractionCommand { get; }
-
         public ObservableCollection<Interaction> Interactions { get; }
         public ObservableCollection<Product> Products { get; }
 
@@ -36,7 +35,7 @@ namespace SalesTrack.ViewModels
 
             DeleteInteractionCommand = new Command<Interaction>(DeleteInteraction);
             SaveInteractionCommand = new Command(async () => await SaveInteraction());
-            
+
             SelectedProduct = Products.FirstOrDefault();
             Date = DateTime.Today;
             Purchased = false;
@@ -60,11 +59,15 @@ namespace SalesTrack.ViewModels
             };
 
             _databaseContext.AddInteraction(interaction);
-
             Interactions.Add(interaction);
 
             await _databaseContext.SaveChangesAsync();
-            await Shell.Current.Navigation.PopAsync();
+
+            // Clear the input fields after saving
+            SelectedProduct = Products.FirstOrDefault();
+            Date = DateTime.Today;
+            Comments = string.Empty;
+            Purchased = false;
         }
     }
 }
