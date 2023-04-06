@@ -15,9 +15,7 @@ namespace SalesTrack.Views
         public InteractionsPage(Customer customer)
         {
             InitializeComponent();
-
-            _viewModel = new InteractionsViewModel(customer);
-            BindingContext = _viewModel;
+            BindingContext = _viewModel = new InteractionsViewModel(customer);
         }
 
         private void AddNewInteractionClicked(object sender, EventArgs e)

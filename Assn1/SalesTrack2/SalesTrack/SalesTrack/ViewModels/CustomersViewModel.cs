@@ -40,11 +40,10 @@ namespace SalesTrack.ViewModels
         {
             if (customer != null)
             {
-                await Shell.Current.Navigation.PushAsync(new InteractionsPage(customer));
+                await Application.Current.MainPage.Navigation.PushAsync(new InteractionsPage(customer));
             }
         }
-
-
+        
         public void DeleteCustomer(Customer customer)
         {
             _databaseContext.DeleteCustomer(customer);
