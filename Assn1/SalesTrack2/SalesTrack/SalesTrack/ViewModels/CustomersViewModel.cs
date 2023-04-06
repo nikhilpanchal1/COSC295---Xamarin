@@ -24,10 +24,7 @@ namespace SalesTrack.ViewModels
         {
             _databaseContext = new DatabaseContext(DependencyService.Get<IFileHelper>().GetLocalFilePath("database.sqlite"));
             Customers = new ObservableCollection<Customer>(_databaseContext.GetCustomers());
-            ViewCustomerInteractionsCommand = new Command<Customer>(async (customer) =>
-            {
-                await Shell.Current.Navigation.PushAsync(new InteractionsPage(customer));
-            });
+            ViewCustomerInteractionsCommand = new Command<Customer>(async (customer) => await NavigateToInteractionsPage(customer));
             LoadCustomers();
         }
         public async Task LoadCustomers()
@@ -37,6 +34,13 @@ namespace SalesTrack.ViewModels
             foreach (var customer in customersList)
             {
                 Customers.Add(customer);
+            }
+        }
+        public async Task NavigateToInteractionsPage(Customer customer)
+        {
+            if (customer != null)
+            {
+                await Shell.Current.Navigation.PushAsync(new InteractionsPage(customer));
             }
         }
 
