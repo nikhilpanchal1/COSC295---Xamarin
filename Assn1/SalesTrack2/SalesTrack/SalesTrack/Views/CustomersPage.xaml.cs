@@ -44,14 +44,14 @@ namespace SalesTrack.Views
                     var swipeView = new SwipeView
                     {
                         RightItems = swipeItems,
-                        Content = grid
+                        Content = grid,
                     };
                     swipeView.SetBinding(SwipeView.BindingContextProperty, ".");
                     deleteItem.SetBinding(SwipeItem.CommandParameterProperty, ".");
                     grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
 
                     var viewCell = new ViewCell { View = swipeView };
-                    viewCell.Tapped += async (sender, args) =>
+                    viewCell.Tapped += (sender, args) =>
                     {
                         if (sender is ViewCell cell && cell.BindingContext is Customer customer)
                         {
