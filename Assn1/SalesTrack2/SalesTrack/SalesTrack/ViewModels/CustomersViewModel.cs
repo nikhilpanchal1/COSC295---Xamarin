@@ -28,6 +28,16 @@ namespace SalesTrack.ViewModels
                 await Shell.Current.Navigation.PushAsync(new InteractionsPage(customer));
             });
         }
+        public void RefreshData()
+        {
+            Customers.Clear();
+            var updatedCustomers = _databaseContext.GetCustomers();
+            foreach (var customer in updatedCustomers)
+            {
+                Customers.Add(customer);
+            }
+        }
+
 
         public void DeleteCustomer(Customer customer)
         {

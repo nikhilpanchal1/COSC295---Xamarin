@@ -5,10 +5,12 @@
              x:Class="SalesTrack.Views.CustomersPage"
              Title="Customers">
     <ContentPage.Content>
+        <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCustomersCommand}">
         <StackLayout>
             <Label Text="Hello, world!"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand" />
         </StackLayout>
+        </RefreshView>
     </ContentPage.Content>
 </ContentPage>

@@ -1,4 +1,6 @@
-﻿using SalesTrack.Data;
+﻿using System.Collections.ObjectModel;
+using System.Runtime.InteropServices;
+using SalesTrack.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SalesTrack.ViewModels;
@@ -69,11 +71,12 @@ namespace SalesTrack.Views
                 Text = "Add New Customer",
                 Command = new Command(async () => await Navigation.PushAsync(new AddEditCustomerPage()))
             };
-
+            
             Content = new StackLayout
             {
                 Children = { listView, addNewCustomerButton }
             };
+            
         }
     }
 }

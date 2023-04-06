@@ -1,8 +1,8 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 using SalesTrack.Data;
-
-using Xamarin.Forms;
 
 namespace SalesTrack.ViewModels
 {
@@ -10,7 +10,7 @@ namespace SalesTrack.ViewModels
     {
         private readonly DatabaseContext _databaseContext;
 
-        public ICommand SaveCommand { get; }
+        public ICommand SaveCustomerAsync { get; }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -22,23 +22,24 @@ namespace SalesTrack.ViewModels
         {
             _databaseContext = new DatabaseContext(DependencyService.Get<IFileHelper>().GetLocalFilePath("database.sqlite"));
 
-            SaveCommand = new Command(async () =>
+            SaveCustomerAsync = new Command(async () => await SaveCustomer());
+        }
+
+        public async Task<bool> SaveCustomer()
+        {
+            var newCustomer = new Customer
             {
-                var newCustomer = new Customer
-                {
-                    FirstName = FirstName,
-                    LastName = LastName,
-                    Address = Address,
-                    Phone = Phone,
-                    Email = Email
-                };
+                FirstName = FirstName,
+                LastName = LastName,
+                Address = Address,
+                Phone = Phone,
+                Email = Email
+            };
 
-                _databaseContext.AddCustomer(newCustomer);
-                await _databaseContext.SaveChangesAsync();
+            _databaseContext.AddCustomer(newCustomer);
+            await _databaseContext.SaveChangesAsync();
 
-                await Shell.Current.Navigation.PopAsync();
-            });
-
+            return true;
         }
     }
 }

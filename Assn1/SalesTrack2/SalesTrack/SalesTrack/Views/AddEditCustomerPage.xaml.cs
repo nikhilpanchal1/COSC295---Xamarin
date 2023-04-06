@@ -9,24 +9,24 @@ namespace SalesTrack.Views
     public partial class AddEditCustomerPage : ContentPage
     {
         private AddEditCustomerViewModel _viewModel;
+
         public AddEditCustomerPage()
         {
             InitializeComponent();
             _viewModel = new AddEditCustomerViewModel();
             BindingContext = _viewModel;
         }
+
         private async void SaveClicked(object sender, EventArgs e)
         {
-            // Execute the SaveCommand to save the customer data to the database
-            _viewModel.SaveCommand.Execute(null);
+            // Execute the SaveCustomerAsync method to save the customer data to the database
+            bool saveResult = await _viewModel.SaveCustomer();
 
-            // Navigate back to the previous page
-            await Shell.Current.Navigation.PopAsync();
+            if (saveResult)
+            {
+                // Navigate back to the CustomersPage
+                await Navigation.PopAsync();
+            }
         }
     }
 }
-
-
-
-//// Get the binding context of the page, which should be an instance of AddEditCustomerViewModel
-//var viewModel = (AddEditCustomerViewModel)BindingContext;
