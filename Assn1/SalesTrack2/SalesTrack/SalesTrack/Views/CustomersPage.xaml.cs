@@ -78,5 +78,14 @@ namespace SalesTrack.Views
             };
             
         }
+        
+        // Override the OnAppearing method
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Refresh the customer list
+            await _viewModel.LoadCustomers();
+        }
     }
 }

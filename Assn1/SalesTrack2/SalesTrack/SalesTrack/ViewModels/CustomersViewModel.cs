@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using SalesTrack.Data;
@@ -27,12 +28,13 @@ namespace SalesTrack.ViewModels
             {
                 await Shell.Current.Navigation.PushAsync(new InteractionsPage(customer));
             });
+            LoadCustomers();
         }
-        public void RefreshData()
+        public async Task LoadCustomers()
         {
             Customers.Clear();
-            var updatedCustomers = _databaseContext.GetCustomers();
-            foreach (var customer in updatedCustomers)
+            var customersList = await _databaseContext.GetCustomersAsync();
+            foreach (var customer in customersList)
             {
                 Customers.Add(customer);
             }

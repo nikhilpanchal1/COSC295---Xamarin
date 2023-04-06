@@ -111,6 +111,9 @@ namespace SalesTrack.Data
             await Task.Run(() => _sqCon.Commit());
         }
 
-        
+        public async Task<List<Customer>> GetCustomersAsync()
+        {
+            return await Task.Run(() => GetCustomers());
+        }
     }
 }
