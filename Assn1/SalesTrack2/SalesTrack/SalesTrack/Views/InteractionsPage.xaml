@@ -25,7 +25,7 @@
             <Label Text="Add Interaction" FontAttributes="Bold" FontSize="Large" HorizontalOptions="Center" />
             <DatePicker Date="{Binding Date}" />
             <Entry Placeholder="Comments" Text="{Binding Comments}" />
-            <Picker Title="Product" ItemsSource="{Binding Products}" ItemDisplayBinding="{Binding ProductName}" SelectedItem="{Binding SelectedProduct}" />
+            <Picker Title="Product" ItemsSource="{Binding Products}" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding SelectedProduct}" />
             <StackLayout Orientation="Horizontal">
                 <Label Text="Purchase?" VerticalOptions="Center" />
                 <Switch IsToggled="{Binding Purchased}" />
