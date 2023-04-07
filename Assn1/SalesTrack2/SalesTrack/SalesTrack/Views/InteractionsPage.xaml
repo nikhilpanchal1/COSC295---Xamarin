@@ -12,11 +12,13 @@
         <ListView x:Name="InteractionsListView" ItemsSource="{Binding Interactions}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding DisplayText}" Detail="{Binding DateString}">
+                    <!-- InteractionsPage.xaml -->
+                    <TextCell Text="{Binding InteractionDisplayText}">
                         <TextCell.ContextActions>
                             <MenuItem Text="Delete" IconImageSource="trash.png" IsDestructive="True" Command="{Binding BindingContext.DeleteInteractionCommand, Source={x:Reference InteractionsListView}}" CommandParameter="{Binding .}" />
                         </TextCell.ContextActions>
                     </TextCell>
+
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
