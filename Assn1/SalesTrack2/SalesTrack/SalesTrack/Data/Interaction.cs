@@ -36,6 +36,38 @@ namespace SalesTrack.Data
             return $"{CustomerFullName}\n{Date:dddd, MMMM d, yyyy}\t{Comments}\n{product.Name}. Purchased: {Purchased}";
         }
     }
+    // Interaction.cs
+    [Ignore]
+    public string ProductName
+    {
+        get
+        {
+            DatabaseContext dbContext = new DatabaseContext(DependencyService.Get<IFileHelper>().GetLocalFilePath("database.sqlite"));
+            var product = dbContext.GetProductById(ProductID);
+            return product?.Name;
+        }
+    }
+    // Interaction.cs
+    [Ignore]
+    public string DateString
+    {
+        get
+        {
+            return Date.ToString("dddd, MMMM d, yyyy");
+        }
+    }
+
+    [Ignore]
+    public string ProductDisplay
+    {
+        get
+        {
+            DatabaseContext dbContext = new DatabaseContext(DependencyService.Get<IFileHelper>().GetLocalFilePath("database.sqlite"));
+            var product = dbContext.GetProductById(ProductID);
+            return $"{product.Name}. Purchased: {Purchased}";
+        }
+    }
+
 
     }
 }

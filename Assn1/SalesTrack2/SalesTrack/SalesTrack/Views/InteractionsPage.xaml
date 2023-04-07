@@ -13,12 +13,27 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <!-- InteractionsPage.xaml -->
-                    <TextCell Text="{Binding InteractionDisplayText}">
-                        <TextCell.ContextActions>
-                            <MenuItem Text="Delete" IconImageSource="trash.png" IsDestructive="True" Command="{Binding BindingContext.DeleteInteractionCommand, Source={x:Reference InteractionsListView}}" CommandParameter="{Binding .}" />
-                        </TextCell.ContextActions>
-                    </TextCell>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
 
+                            <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding CustomerFullName}" FontAttributes="Bold" />
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding DateString}" HorizontalOptions="Start" />
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Comments}" HorizontalOptions="End" />
+                            <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding ProductDisplay}" />
+                        </Grid>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" IconImageSource="trash.png" IsDestructive="True" Command="{Binding BindingContext.DeleteInteractionCommand, Source={x:Reference InteractionsListView}}" CommandParameter="{Binding .}" />
+                        </ViewCell.ContextActions>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
