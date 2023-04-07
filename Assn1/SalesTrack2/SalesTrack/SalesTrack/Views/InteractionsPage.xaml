@@ -9,8 +9,8 @@
              Title="Interactions">
     
     <StackLayout>
-        <ListView x:Name="InteractionsListView" ItemsSource="{Binding Interactions}">
-            <ListView.ItemTemplate>
+        <ListView x:Name="InteractionsListView" ItemsSource="{Binding Interactions}" RowHeight = "100">
+            <ListView.ItemTemplate >
                 <DataTemplate>
                     <!-- InteractionsPage.xaml -->
                     <ViewCell>
