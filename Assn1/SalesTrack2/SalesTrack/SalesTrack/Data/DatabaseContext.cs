@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using SQLite;
+using Xamarin.Forms;
 
 namespace SalesTrack.Data
 {
@@ -18,8 +19,68 @@ namespace SalesTrack.Data
             {
                 InsertDummyData();
             }
+            if (GetProducts().Count == 0)
+            {
+                InsertDummyProducts();
+            }
         }
         
+        private void InsertDummyProducts()
+        {
+            var products = new List<Product>
+            {
+                new Product { Name = "MonkE Coffee", Description = "Coffee for everyone!", Price = 5000.00 },
+                new Product { Name = "ePhone", Description = "iPhone for the ones who dont like iPhones", Price = 99999.00 },
+                new Product { Name = "MatchStick", Description = "Exactly one and only one matchstick", Price = 25.00 }
+            };
+
+            foreach (var product in products)
+            {
+                AddProduct(product);
+            }
+        }
+
+        public class Product
+        {
+            [PrimaryKey, AutoIncrement]
+            public int ID { get; set; }
+            public string Name { get; set; }
+            public string Description { get; set; }
+            public double Price { get; set; }
+
+            [Ignore]
+            public int NumberOfInteractions
+            {
+                get
+                {
+                    DatabaseContext dbContext = new DatabaseContext(DependencyService.Get<IFileHelper>().GetLocalFilePath("database.sqlite"));
+                    return dbContext.GetInteractionsByProduct(ID).Count;
+                }
+            }
+
+            // Override the ToString() method to return the desired string representation
+            public override string ToString()
+            {
+                return Name;
+            }
+        }
+
+        public List<Product> GetProductsByCustomer(int customerId)
+        {
+            List<Interaction> interactions = GetInteractionsByCustomer(customerId);
+            List<Product> products = new List<Product>();
+
+            foreach (Interaction interaction in interactions)
+            {
+                Product product = GetProductById(interaction.ProductID);
+                if (product != null)
+                {
+                    products.Add(product);
+                }
+            }
+
+            return products;
+        }
         private void InsertDummyData()
         {
             var customers = new List<Customer>

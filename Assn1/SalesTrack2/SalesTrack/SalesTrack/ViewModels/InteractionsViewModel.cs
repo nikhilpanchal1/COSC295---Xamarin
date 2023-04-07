@@ -7,7 +7,6 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using SalesTrack.Data;
 
-
 namespace SalesTrack.ViewModels
 {
     public class InteractionsViewModel
@@ -18,9 +17,10 @@ namespace SalesTrack.ViewModels
         public ICommand DeleteInteractionCommand { get; }
         public ICommand SaveInteractionCommand { get; }
         public ObservableCollection<Interaction> Interactions { get; }
-        public ObservableCollection<Product> Products { get; }
+        public ObservableCollection<DatabaseContext.Product> Products { get; } // Corrected the type
+        public ObservableCollection<DatabaseContext.Product> CustomerProducts { get; } // New property
 
-        public Product SelectedProduct { get; set; }
+        public DatabaseContext.Product SelectedProduct { get; set; } // Corrected the type
         public DateTime Date { get; set; }
         public string Comments { get; set; }
         public bool Purchased { get; set; }
@@ -31,7 +31,8 @@ namespace SalesTrack.ViewModels
             _customer = customer;
 
             Interactions = new ObservableCollection<Interaction>(_databaseContext.GetInteractionsByCustomer(_customer.ID));
-            Products = new ObservableCollection<Product>(_databaseContext.GetProducts());
+            Products = new ObservableCollection<DatabaseContext.Product>(_databaseContext.GetProducts().Where(p => p != null));
+            CustomerProducts = new ObservableCollection<DatabaseContext.Product>(_databaseContext.GetProductsByCustomer(_customer.ID)); // Populate CustomerProducts
 
             DeleteInteractionCommand = new Command<Interaction>(DeleteInteraction);
             SaveInteractionCommand = new Command(async () => await SaveInteraction());
