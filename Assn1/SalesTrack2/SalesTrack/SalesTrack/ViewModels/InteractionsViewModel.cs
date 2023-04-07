@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using SalesTrack.Data;
+using SalesTrack.Services;
 
 namespace SalesTrack.ViewModels
 {
@@ -63,7 +64,10 @@ namespace SalesTrack.ViewModels
             Interactions.Add(interaction);
 
             await _databaseContext.SaveChangesAsync();
-
+            
+            // Display a toast message after saving
+            DependencyService.Get<IToastService>().Show("Interaction saved!");
+            
             // Clear the input fields after saving
             SelectedProduct = Products.FirstOrDefault();
             Date = DateTime.Today;
