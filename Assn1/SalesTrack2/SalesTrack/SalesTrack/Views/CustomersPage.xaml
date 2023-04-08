@@ -4,6 +4,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SalesTrack.Views.CustomersPage"
              Title="Customers">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Products Settings" Command="{Binding GoToProductsSettingsCommand}" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCustomersCommand}">
         <StackLayout>

@@ -25,6 +25,7 @@ namespace SalesTrack.ViewModels
             _databaseContext = new DatabaseContext(DependencyService.Get<IFileHelper>().GetLocalFilePath("database.sqlite"));
             Customers = new ObservableCollection<Customer>(_databaseContext.GetCustomers());
             ViewCustomerInteractionsCommand = new Command<Customer>(async (customer) => await NavigateToInteractionsPage(customer));
+            GoToProductsSettingsCommand = new Command(async () => await GoToProductsSettings());
             LoadCustomers();
         }
         public async Task LoadCustomers()
@@ -49,5 +50,14 @@ namespace SalesTrack.ViewModels
             _databaseContext.DeleteCustomer(customer);
             Customers.Remove(customer);
         }
+        public ICommand GoToProductsSettingsCommand { get; }
+
+       
+        private async Task GoToProductsSettings()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
+        }
+
+
     }
 }

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalesTrack.Views.ProductsPage"
+             Title="Products">
+    <ContentPage.Content>
+        <ListView ItemsSource="{Binding Products}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding Name}"
+                                   FontSize="Large"
+                                   FontAttributes="Bold"
+                                   Grid.Row="0"
+                                   Grid.Column="0" />
+                            
+                            <Label Text="{Binding Description}"
+                                   Grid.Row="1"
+                                   Grid.Column="0" />
+                            
+                            <Label Text="{Binding Price, StringFormat='Price: {0:C}'}"
+                                   Grid.Row="0"
+                                   Grid.Column="1" />
+
+                            <Label Text="{Binding NumberOfInteractions, StringFormat='Interactions: {0}'}"
+                                   Grid.Row="1"
+                                   Grid.Column="1" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>
