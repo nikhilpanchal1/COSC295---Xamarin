@@ -5,7 +5,7 @@
              x:Class="SalesTrack.Views.CustomersPage"
              Title="Customers">
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Products Settings" Command="{Binding GoToProductsSettingsCommand}" />
+        <ToolbarItem Text="Products" Command="{Binding GoToProductsSettingsCommand}" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCustomersCommand}">
