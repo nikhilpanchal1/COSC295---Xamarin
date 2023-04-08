@@ -15,10 +15,7 @@ namespace SalesTrack.Data
             _sqCon.CreateTable<Customer>();
             _sqCon.CreateTable <Interaction>();
             _sqCon.CreateTable<Product>();
-            if (GetCustomers().Count == 0)
-            {
-                InsertDummyData();
-            }
+            
             if (GetProducts().Count == 0)
             {
                 InsertDummyProducts();
@@ -80,20 +77,6 @@ namespace SalesTrack.Data
             }
 
             return products;
-        }
-        private void InsertDummyData()
-        {
-            var customers = new List<Customer>
-            {
-                new Customer { FirstName = "Marshall", LastName = "Matthers", Address = "Miane Street", Phone = "222-222-1246", Email = "marshall.mat@example.com" },
-                new Customer { FirstName = "Jigger", LastName = "Jaggernaut", Address = "Southwest", Phone = "455-555-5678", Email = "jaggernaut@example.com" },
-                new Customer { FirstName = "Slob", LastName = "Smol", Address = "TAXESS", Phone = "123-545-5454", Email = "TaxesSmol@example.com" }
-            };
-
-            foreach (var customer in customers)
-            {
-                AddCustomer(customer);
-            }
         }
 
         public void AddCustomer(Customer customer)

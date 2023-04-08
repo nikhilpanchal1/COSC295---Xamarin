@@ -1,11 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using SQLite;
 using Xamarin.Forms;
 
 namespace SalesTrack.Data
 {
-    public class Interaction
+    public class Interaction : INotifyPropertyChanged
     {
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
@@ -14,6 +15,26 @@ namespace SalesTrack.Data
         public string Comments { get; set; }
         public int ProductID { get; set; }
         public bool Purchased { get; set; }
+
+        
+        private bool _isPurchased;
+        public bool IsPurchased
+        {
+            get => _isPurchased;
+            set
+            {
+                if (_isPurchased != value)
+                {
+                    _isPurchased = value;
+                    OnPropertyChanged(nameof(IsPurchased));
+                }
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     // Interaction.cs
     [Ignore]
     public string CustomerFullName

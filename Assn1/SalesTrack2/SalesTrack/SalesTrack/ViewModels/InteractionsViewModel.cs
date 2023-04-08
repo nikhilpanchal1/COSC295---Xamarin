@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -28,6 +29,7 @@ namespace SalesTrack.ViewModels
 
         public InteractionsViewModel(Customer customer)
         {
+           
             _databaseContext = new DatabaseContext(DependencyService.Get<IFileHelper>().GetLocalFilePath("database.sqlite"));
             _customer = customer;
 
@@ -41,8 +43,25 @@ namespace SalesTrack.ViewModels
             SelectedProduct = Products.FirstOrDefault();
             Date = DateTime.Today;
             Purchased = false;
+            Interactions.CollectionChanged += Interactions_CollectionChanged;
         }
-
+        private void Interactions_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
+            {
+                foreach (Interaction interaction in e.NewItems)
+                {
+                    interaction.PropertyChanged += Interaction_PropertyChanged;
+                }
+            }
+        }
+        private void Interaction_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(Interaction.IsPurchased))
+            {
+                UpdateInteraction((Interaction)sender);
+            }
+        }
         public void DeleteInteraction(Interaction interaction)
         {
             _databaseContext.DeleteInteraction(interaction);
@@ -74,5 +93,12 @@ namespace SalesTrack.ViewModels
             Comments = string.Empty;
             Purchased = false;
         }
+        public void UpdateInteraction(Interaction interaction)
+        {
+            _databaseContext.UpdateInteraction(interaction);
+            _databaseContext.SaveChangesAsync();
+        }
+        
+        
     }
 }
