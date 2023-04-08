@@ -3,12 +3,14 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using SalesTrack.Data;
+using SalesTrack.Views;
 
 namespace SalesTrack.ViewModels
 {
     public class AddEditCustomerViewModel
     {
         private readonly DatabaseContext _databaseContext;
+        public ICommand GoToProductsSettingsCommand { get; }
 
         public ICommand SaveCustomerAsync { get; }
 
@@ -23,6 +25,8 @@ namespace SalesTrack.ViewModels
             _databaseContext = new DatabaseContext(DependencyService.Get<IFileHelper>().GetLocalFilePath("database.sqlite"));
 
             SaveCustomerAsync = new Command(async () => await SaveCustomer());
+            GoToProductsSettingsCommand = new Command(async () => await GoToProductsSettings());
+
         }
 
         public async Task<bool> SaveCustomer()
@@ -41,5 +45,10 @@ namespace SalesTrack.ViewModels
 
             return true;
         }
+        private async Task GoToProductsSettings()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
+        }
+
     }
 }

@@ -8,6 +8,9 @@
              mc:Ignorable="d"
              x:Class="SalesTrack.Views.InteractionsPage"
              Title="Interactions">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Products" Command="{Binding GoToProductsSettingsCommand}" />
+    </ContentPage.ToolbarItems>
     
     <StackLayout>
         <ListView x:Name="InteractionsListView" ItemsSource="{Binding Interactions}" RowHeight="100">

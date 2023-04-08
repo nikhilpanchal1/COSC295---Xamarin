@@ -8,6 +8,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using SalesTrack.Data;
 using SalesTrack.Services;
+using SalesTrack.Views;
 
 namespace SalesTrack.ViewModels
 {
@@ -26,6 +27,7 @@ namespace SalesTrack.ViewModels
         public DateTime Date { get; set; }
         public string Comments { get; set; }
         public bool Purchased { get; set; }
+        public ICommand GoToProductsSettingsCommand { get; }
 
         public InteractionsViewModel(Customer customer)
         {
@@ -44,6 +46,8 @@ namespace SalesTrack.ViewModels
             Date = DateTime.Today;
             Purchased = false;
             Interactions.CollectionChanged += Interactions_CollectionChanged;
+            GoToProductsSettingsCommand = new Command(async () => await GoToProductsSettings());
+
         }
         private void Interactions_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
@@ -98,7 +102,11 @@ namespace SalesTrack.ViewModels
             _databaseContext.UpdateInteraction(interaction);
             _databaseContext.SaveChangesAsync();
         }
-        
+        private async Task GoToProductsSettings()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
+        }
+
         
     }
 }

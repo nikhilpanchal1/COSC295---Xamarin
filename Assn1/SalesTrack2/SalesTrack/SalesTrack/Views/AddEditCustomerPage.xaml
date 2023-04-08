@@ -6,6 +6,9 @@
              mc:Ignorable="d"
              x:Class="SalesTrack.Views.AddEditCustomerPage"
              Title="Add New Customer">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Products" Command="{Binding GoToProductsSettingsCommand}" />
+    </ContentPage.ToolbarItems>
     
     <StackLayout>
         <TableView>

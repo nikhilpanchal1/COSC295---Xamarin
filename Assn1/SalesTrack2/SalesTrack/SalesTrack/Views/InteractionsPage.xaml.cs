@@ -18,7 +18,7 @@ namespace SalesTrack.Views
             _viewModel = new InteractionsViewModel(customer);
             BindingContext = _viewModel;
         }
-
+        
         
     }
 }
