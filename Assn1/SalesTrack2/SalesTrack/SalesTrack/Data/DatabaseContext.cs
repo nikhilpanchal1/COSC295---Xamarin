@@ -26,9 +26,9 @@ namespace SalesTrack.Data
         {
             var products = new List<Product>
             {
-                new Product { Name = "MonkE Coffee", Description = "Coffee for everyone!", Price = 5000.00 },
-                new Product { Name = "ePhone", Description = "iPhone for the ones who dont like iPhones", Price = 99999.00 },
-                new Product { Name = "MatchStick", Description = "Exactly one and only one matchstick", Price = 25.00 }
+                new Product { Name = "Wonder Jacket", Description = "A wonderful jacket!!!", Price = 499.99 },
+                new Product { Name = "Wonder Hat", Description = "A wonderful hat!", Price = 124.99 },
+                new Product { Name = "Wonder Boots", Description = "A wonderful pair of high quality boots", Price = 224.99 }
             };
 
             foreach (var product in products)
