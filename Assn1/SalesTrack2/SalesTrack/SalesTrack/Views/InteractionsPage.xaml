@@ -10,6 +10,8 @@
              Title="Interactions">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Products" Command="{Binding GoToProductsSettingsCommand}" />
+        <ToolbarItem Text="Settings" Command="{Binding GoToSettingsCommand}" />
+
     </ContentPage.ToolbarItems>
     
     <StackLayout>

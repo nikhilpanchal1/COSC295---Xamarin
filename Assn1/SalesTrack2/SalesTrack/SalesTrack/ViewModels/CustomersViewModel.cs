@@ -14,6 +14,7 @@ namespace SalesTrack.ViewModels
     public class CustomersViewModel
     {
         private readonly DatabaseContext _databaseContext;
+        public ICommand GoToSettingsCommand { get; }
 
         public ICommand ViewCustomerInteractionsCommand { get; }
 
@@ -26,6 +27,8 @@ namespace SalesTrack.ViewModels
             Customers = new ObservableCollection<Customer>(_databaseContext.GetCustomers());
             ViewCustomerInteractionsCommand = new Command<Customer>(async (customer) => await NavigateToInteractionsPage(customer));
             GoToProductsSettingsCommand = new Command(async () => await GoToProductsSettings());
+            GoToSettingsCommand = new Command(async () => await GoToSettings());
+
             LoadCustomers();
         }
         public async Task LoadCustomers()
@@ -57,7 +60,11 @@ namespace SalesTrack.ViewModels
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
         }
+        private async Task GoToSettings()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new SettingsPage());
+        }
 
-
+    
     }
 }

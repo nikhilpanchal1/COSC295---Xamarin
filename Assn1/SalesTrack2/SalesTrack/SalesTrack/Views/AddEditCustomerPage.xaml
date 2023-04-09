@@ -8,6 +8,7 @@
              Title="Add New Customer">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Products" Command="{Binding GoToProductsSettingsCommand}" />
+        <ToolbarItem Text="Settings" Command="{Binding GoToSettingsCommand}" />
     </ContentPage.ToolbarItems>
     
     <StackLayout>

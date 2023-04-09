@@ -22,6 +22,7 @@ namespace SalesTrack.ViewModels
         public ObservableCollection<Interaction> Interactions { get; }
         public ObservableCollection<DatabaseContext.Product> Products { get; } // Corrected the type
         public ObservableCollection<DatabaseContext.Product> CustomerProducts { get; } // New property
+        public ICommand GoToSettingsCommand { get; }
 
         public DatabaseContext.Product SelectedProduct { get; set; } // Corrected the type
         public DateTime Date { get; set; }
@@ -47,6 +48,7 @@ namespace SalesTrack.ViewModels
             Purchased = false;
             Interactions.CollectionChanged += Interactions_CollectionChanged;
             GoToProductsSettingsCommand = new Command(async () => await GoToProductsSettings());
+            GoToSettingsCommand = new Command(async () => await GoToSettings());
 
         }
         private void Interactions_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
@@ -105,6 +107,10 @@ namespace SalesTrack.ViewModels
         private async Task GoToProductsSettings()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
+        }
+        private async Task GoToSettings()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new SettingsPage());
         }
 
         

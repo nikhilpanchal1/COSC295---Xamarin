@@ -159,5 +159,14 @@ namespace SalesTrack.Data
         {
             return await Task.Run(() => GetCustomers());
         }
+        
+        public async Task ResetAppDataAsync()
+        {
+            _sqCon.DropTable<Customer>();
+            _sqCon.DropTable<Interaction>();
+            _sqCon.CreateTable<Customer>();
+            _sqCon.CreateTable<Interaction>();
+        }
+
     }
 }

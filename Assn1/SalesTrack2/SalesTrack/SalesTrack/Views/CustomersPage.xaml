@@ -6,6 +6,8 @@
              Title="Customers">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Products" Command="{Binding GoToProductsSettingsCommand}" />
+        <ToolbarItem Text="Settings" Command="{Binding GoToSettingsCommand}" />
+
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <RefreshView IsRefreshing="{Binding IsRefreshing}" Command="{Binding RefreshCustomersCommand}">

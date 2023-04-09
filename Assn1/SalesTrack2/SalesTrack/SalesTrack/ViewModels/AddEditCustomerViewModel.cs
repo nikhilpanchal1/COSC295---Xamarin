@@ -11,6 +11,7 @@ namespace SalesTrack.ViewModels
     {
         private readonly DatabaseContext _databaseContext;
         public ICommand GoToProductsSettingsCommand { get; }
+        public ICommand GoToSettingsCommand { get; }
 
         public ICommand SaveCustomerAsync { get; }
 
@@ -26,6 +27,7 @@ namespace SalesTrack.ViewModels
 
             SaveCustomerAsync = new Command(async () => await SaveCustomer());
             GoToProductsSettingsCommand = new Command(async () => await GoToProductsSettings());
+            GoToSettingsCommand = new Command(async () => await GoToSettings());
 
         }
 
@@ -48,6 +50,10 @@ namespace SalesTrack.ViewModels
         private async Task GoToProductsSettings()
         {
             await Application.Current.MainPage.Navigation.PushAsync(new ProductsPage());
+        }
+        private async Task GoToSettings()
+        {
+            await Application.Current.MainPage.Navigation.PushAsync(new SettingsPage());
         }
 
     }
