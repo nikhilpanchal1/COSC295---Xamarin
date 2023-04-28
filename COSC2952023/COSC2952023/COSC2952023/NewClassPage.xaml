@@ -11,10 +11,12 @@
                         <EntryCell Label="Name" x:Name="ClassNameEntry" />
                         <EntryCell Label="Year" x:Name="ClassYearEntry" Keyboard="Numeric" />
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="Credits" />
-                                <Slider x:Name="CreditsSlider" Maximum="8" ValueChanged="OnSliderValueChanged" />
-                                <Label x:Name="CreditsLabel" />
+                            <StackLayout Padding="20, 0, 20, 0" VerticalOptions="Center">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Credits" />
+                                    <Slider x:Name="CreditsSlider" Maximum="8" HorizontalOptions="FillAndExpand" ValueChanged="OnSliderValueChanged" />
+                                    <Label x:Name="CreditsLabel" />
+                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </TableSection>
