@@ -38,7 +38,11 @@ namespace COSC2952023
         {
             return database.Table<Grade>().ToList<Grade>();
         }
-
+        //get grade from id
+        public Grade GetGrade(int id)
+        {
+            return database.Table<Grade>().FirstOrDefault(g => g.classID == id);
+        }
         public int SaveClass(Class myclass)
         {
             if (myclass.ID != 0)

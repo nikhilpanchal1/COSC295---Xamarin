@@ -16,7 +16,8 @@
         <StackLayout>
             <RefreshView x:Name="RefreshViewControl" Refreshing="OnRefreshing">
                 <ListView x:Name="ClassListView" HeightRequest="600" 
-                          HasUnevenRows="True">
+                          HasUnevenRows="True" 
+                          ItemSelected="OnItemSelected">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

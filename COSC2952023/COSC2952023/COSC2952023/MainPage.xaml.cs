@@ -10,6 +10,7 @@ namespace COSC2952023
 {
     public partial class MainPage : ContentPage
     {
+        private SchoolDatabase _schoolDatabase;
         public MainPage()
         {
             InitializeComponent();
@@ -20,8 +21,9 @@ namespace COSC2952023
         {
             var dbPath = DependencyService.Get<IFileHelper>().GetLocalFilePath("SchoolDatabase.db3");
 
-            var schoolDatabase = new SchoolDatabase(dbPath);
-            var classes = schoolDatabase.GetClasses();
+            _schoolDatabase = new SchoolDatabase(dbPath);
+
+            var classes = _schoolDatabase.GetClasses();
             ClassListView.ItemsSource = classes;
         }
 
@@ -44,5 +46,25 @@ namespace COSC2952023
             LoadData();
             RefreshViewControl.IsRefreshing = false;
         }
+        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            try
+            {
+                if (e.SelectedItem == null)
+                    return;
+
+                Class selectedClass = e.SelectedItem as Class;
+                await Navigation.PushAsync(new GradePage(selectedClass, _schoolDatabase));
+
+                ((ListView)sender).SelectedItem = null;
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+            
+        }
+
     }
 }
