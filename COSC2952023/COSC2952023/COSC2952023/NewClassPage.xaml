@@ -13,7 +13,7 @@
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="Credits" />
-                                <Slider x:Name="CreditsSlider" Minimum="1" Maximum="8" ValueChanged="OnSliderValueChanged" />
+                                <Slider x:Name="CreditsSlider" Maximum="8" ValueChanged="OnSliderValueChanged" />
                                 <Label x:Name="CreditsLabel" />
                             </StackLayout>
                         </ViewCell>

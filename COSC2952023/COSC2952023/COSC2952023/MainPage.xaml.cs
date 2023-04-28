@@ -27,7 +27,16 @@ namespace COSC2952023
 
         private async void OnAddClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new NewClassPage());
+            try
+            {
+                await Navigation.PushAsync(new NewClassPage());
+            }
+            catch (Exception exception)
+            {
+                Console.WriteLine(exception);
+                throw;
+            }
+           
         }
     }
 }

@@ -15,6 +15,7 @@ namespace COSC2952023
         public NewClassPage()
         {
             InitializeComponent();
+            CreditsSlider.Minimum = 1;
             CreditsLabel.Text = "1";
         }
 
