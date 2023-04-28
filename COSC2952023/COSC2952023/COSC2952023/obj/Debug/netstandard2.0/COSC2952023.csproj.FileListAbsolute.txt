@@ -1,0 +1,15 @@
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\bin\Debug\netstandard2.0\COSC2952023.deps.json
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\bin\Debug\netstandard2.0\COSC2952023.dll
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\bin\Debug\netstandard2.0\COSC2952023.pdb
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\COSC2952023.csproj.AssemblyReference.cache
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\COSC2952023.GeneratedMSBuildEditorConfig.editorconfig
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\COSC2952023.AssemblyInfoInputs.cache
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\COSC2952023.AssemblyInfo.cs
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\COSC2952023.csproj.CoreCompileInputs.cache
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\COSC2952023.dll
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\refint\COSC2952023.dll
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\COSC2952023.pdb
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\ref\COSC2952023.dll
