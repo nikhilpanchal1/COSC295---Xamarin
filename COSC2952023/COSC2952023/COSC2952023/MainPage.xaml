@@ -35,6 +35,7 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </RefreshView>
+            <Button x:Name="DeleteGradesButton" Text="Delete All Grades" Clicked="OnDeleteGradesButtonClicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

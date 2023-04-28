@@ -65,6 +65,13 @@ namespace COSC2952023
             }
             
         }
+        
+        private void OnDeleteGradesButtonClicked(object sender, EventArgs e)
+        {
+            _schoolDatabase.DeleteGrades();
+            DisplayAlert("Grades Deleted", "All grades have been deleted.", "OK");
+        }
+
 
     }
 }

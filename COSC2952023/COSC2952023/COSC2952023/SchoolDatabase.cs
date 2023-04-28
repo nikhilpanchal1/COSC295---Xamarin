@@ -76,5 +76,11 @@ namespace COSC2952023
 
             return database.Insert(newGrade);
         }
+        
+        public void DeleteGrades()
+        {
+            database.DeleteAll<Grade>();
+        }
+
     }
 }
