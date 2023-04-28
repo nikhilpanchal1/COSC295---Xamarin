@@ -1,13 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="COSC2952023.MainPage">
+             x:Class="COSC2952023.MainPage"
+             Title="Class List">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" 
+                    Android="25" 
+                    iOS="25" />
+    </ContentPage.Padding>
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Good luck on the exam!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
-
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="ClassListView" HeightRequest="600" 
+                      HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding ID}" FontAttributes="Bold" />
+                                <Label Text="Class:" />
+                                <Label Text="{Binding name}" FontAttributes="Italic" />
+                                <Label Text="Year:" FontAttributes="Bold" />
+                                <Label Text="{Binding year}" FontAttributes="Bold" />
+                                <Label Text="Credits:" FontAttributes="Bold" />
+                                <Label Text="{Binding credits}" FontAttributes="Bold" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>

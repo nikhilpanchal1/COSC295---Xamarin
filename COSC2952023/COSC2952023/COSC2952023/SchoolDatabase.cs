@@ -20,8 +20,11 @@ namespace COSC2952023
             if (database.Table<Class>().Count() == 0)
             {
                 Class myclass = new Class { name = "COSC295", credits = 5, year = 2023 };
+                Class myclass2 = new Class { name = "CDBM280", credits = 6, year = 2023 };
                 database.Insert(myclass);
+                database.Insert(myclass2);
                 Grade grade = new Grade { classID = 1, grade = 75 };
+                //Grade grade2 = new Grade { classID = 2, grade = 80 };
                 database.Insert(grade);
             }
         }

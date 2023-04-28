@@ -13,6 +13,16 @@ namespace COSC2952023
         public MainPage()
         {
             InitializeComponent();
+            LoadData();
+        }
+
+        private void LoadData()
+        {
+            var dbPath = DependencyService.Get<IFileHelper>().GetLocalFilePath("SchoolDatabase.db3");
+
+            var schoolDatabase = new SchoolDatabase(dbPath);
+            var classes = schoolDatabase.GetClasses();
+            ClassListView.ItemsSource = classes;
         }
     }
 }
