@@ -54,5 +54,23 @@ namespace COSC2952023
         ////
         // Add new methods here:
         ////
+        public List<Class> GetHighCreditClasses()
+        {
+            return database.Table<Class>().Where(c => c.credits >= 5).ToList<Class>();
+        }
+        
+        //save grade
+        // Save grade
+        public int SaveGrade(Grade newGrade)
+        {
+            var existingGrade = database.Table<Grade>().FirstOrDefault(g => g.classID == newGrade.classID);
+
+            if (existingGrade != null)
+            {
+                throw new InvalidOperationException("A grade for this class already exists.");
+            }
+
+            return database.Insert(newGrade);
+        }
     }
 }
