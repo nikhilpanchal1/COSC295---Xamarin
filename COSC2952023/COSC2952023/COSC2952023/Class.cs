@@ -43,6 +43,10 @@ namespace COSC2952023
             }
             set
             {
+                if (value < 2023)
+                {
+                    throw new ArgumentException("Year must be 2023 or greater.");
+                }
                 _year = value;
             }
         }
@@ -54,6 +58,10 @@ namespace COSC2952023
             }
             set
             {
+                if (value < 1)
+                {
+                    throw new ArgumentException("Credits must be greater than 0.");
+                }
                 _credits = value;
             }
         }
