@@ -13,3 +13,4 @@ C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj
 C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\refint\COSC2952023.dll
 C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\COSC2952023.pdb
 C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\ref\COSC2952023.dll
+C:\Data\Data\Workspace\COSC295 - Xamarin\COSC2952023\COSC2952023\COSC2952023\obj\Debug\netstandard2.0\NewClassPage.xaml.g.cs

@@ -22,7 +22,7 @@ namespace COSC2952023
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage()); // Wrap MainPage in a NavigationPage
         }
 
         protected override void OnStart()

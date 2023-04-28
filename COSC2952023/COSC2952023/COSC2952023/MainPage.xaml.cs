@@ -24,5 +24,10 @@ namespace COSC2952023
             var classes = schoolDatabase.GetClasses();
             ClassListView.ItemsSource = classes;
         }
+
+        private async void OnAddClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NewClassPage());
+        }
     }
 }

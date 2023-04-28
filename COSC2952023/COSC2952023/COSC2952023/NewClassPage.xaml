@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="COSC2952023.NewClassPage"
+             Title="Add New Class">
+    <ContentPage.Content>
+        <StackLayout>
+            <TableView Intent="Form">
+                <TableRoot>
+                    <TableSection>
+                        <EntryCell Label="Name" x:Name="ClassNameEntry" />
+                        <EntryCell Label="Year" x:Name="ClassYearEntry" Keyboard="Numeric" />
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="Credits" />
+                                <Slider x:Name="CreditsSlider" Minimum="1" Maximum="8" ValueChanged="OnSliderValueChanged" />
+                                <Label x:Name="CreditsLabel" />
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+            <Button Text="Save" Clicked="OnSaveClicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
