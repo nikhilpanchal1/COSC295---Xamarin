@@ -14,24 +14,26 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="ClassListView" HeightRequest="600" 
-                      HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding ID}" FontAttributes="Bold" />
-                                <Label Text="Class:" />
-                                <Label Text="{Binding name}" FontAttributes="Italic" />
-                                <Label Text="Year:" FontAttributes="Bold" />
-                                <Label Text="{Binding year}" FontAttributes="Bold" />
-                                <Label Text="Credits:" FontAttributes="Bold" />
-                                <Label Text="{Binding credits}" FontAttributes="Bold" />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <RefreshView x:Name="RefreshViewControl" Refreshing="OnRefreshing">
+                <ListView x:Name="ClassListView" HeightRequest="600" 
+                          HasUnevenRows="True">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding ID}" FontAttributes="Bold" />
+                                    <Label Text="Class:" />
+                                    <Label Text="{Binding name}" FontAttributes="Italic" />
+                                    <Label Text="Year:" FontAttributes="Bold" />
+                                    <Label Text="{Binding year}" FontAttributes="Bold" />
+                                    <Label Text="Credits:" FontAttributes="Bold" />
+                                    <Label Text="{Binding credits}" FontAttributes="Bold" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </RefreshView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

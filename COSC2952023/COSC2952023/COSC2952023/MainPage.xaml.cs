@@ -38,5 +38,11 @@ namespace COSC2952023
             }
            
         }
+
+        private async void OnRefreshing(object sender, EventArgs e)
+        {
+            LoadData();
+            RefreshViewControl.IsRefreshing = false;
+        }
     }
 }
